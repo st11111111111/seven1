@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cá Cược Thể Thao MK Sports 2024</title>
+<meta name="description" content="MK Sports 2024 nền tảng uy tín với nhiều lựa chọn cá cược và tỷ lệ hấp dẫn. Đăng ký ngay!"/>
+<style>
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  z-index: 2;
+  filter: brightness(100%);
+  /* background 属性来保持原始背景 */
+}
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 确保视频填充整个容器 */
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.video-controls:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.sound-on, .sound-off {
+  color: white;
+  font-size: 24px;
+  user-select: none; /* 防止图标被选中 */
+}
+
+.hidden {
+  display: none;
+}
+
+/* 添加加载提示 */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  z-index: 1;
+}
+</style>
+</head>
+<body>
+
+<div class="video-wrapper">
+  <div class="loading">Loading...</div>
+  <video 
+    src="videos/MK Sports_Empoli.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto">
+  </video>
+  <div class="video-controls">
+    <span class="sound-on">🔊</span>
+    <span class="sound-off hidden">🔇</span>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const videoElement = document.querySelector('video');
+  const soundOn = document.querySelector('.sound-on');
+  const soundOff = document.querySelector('.sound-off');
+  const controls = document.querySelector('.video-controls');
+  const loading = document.querySelector('.loading');
+
+  // 确保视频自动播放
+  const attemptPlay = async () => {
+    try {
+      await videoElement.play();
+      loading.style.display = 'none';
+    } catch (err) {
+      console.log('Autoplay failed:', err);
+      // 如果自动播放失败，显示播放按钮
+      loading.textContent = 'Click to play';
+      loading.style.cursor = 'pointer';
+      loading.addEventListener('click', () => {
+        videoElement.play();
+        loading.style.display = 'none';
+      });
+    }
+  };
+
+  // 视频加载完成后尝试播放
+  videoElement.addEventListener('loadedmetadata', attemptPlay);
+
+  // 处理视频播放错误
+  videoElement.addEventListener('error', () => {
+    loading.textContent = 'Video loading failed';
+  });
+
+  // 如果视频暂停，尝试重新播放
+  videoElement.addEventListener('pause', () => {
+    if (!videoElement.ended) {
+      attemptPlay();
+    }
+  });
+
+  // 音量控制
+  controls.addEventListener('click', function() {
+    if (videoElement.muted) {
+      videoElement.muted = false;
+      soundOn.classList.remove('hidden');
+      soundOff.classList.add('hidden');
+    } else {
+      videoElement.muted = true;
+      soundOn.classList.add('hidden');
+      soundOff.classList.remove('hidden');
+    }
+  });
+
+  // 确保视频循环播放
+  videoElement.addEventListener('ended', function() {
+    videoElement.currentTime = 0;
+    attemptPlay();
+  });
+
+  // 添加视口可见性检测
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      videoElement.pause();
+    } else {
+      attemptPlay();
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cá Cược Thể Thao MK Sports - Cơ Hội Lớn Mỗi Ngày</title>
+<meta name="description" content="Trải nghiệm cá cược thể thao tại MK Sports, nền tảng uy tín với nhiều lựa chọn cá cược và tỷ lệ hấp dẫn. Đăng ký ngay!"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      color: white;
+    }
+
+    .bg-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .promo-section {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 24px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    .timer-container {
+      background: linear-gradient(45deg, #FF4444, #FF0000);
+      padding: 16px 32px;
+      border-radius: 16px;
+      display: inline-block;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+      animation: floatTimer 3s ease-in-out infinite;
+    }
+
+    .timer {
+      font-size: 36px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .bonus-text {
+      font-size: 42px;
+      font-weight: bold;
+      margin: 24px 0;
+      color: #FFD700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .register-button {
+      display: inline-block;
+      padding: 20px 60px;
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      margin: 20px 0;
+      transition: all 0.3s ease;
+      animation: floatButton 3s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6),
+                  0 0 30px rgba(255, 215, 0, 0.4),
+                  0 0 60px rgba(255, 215, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .register-button::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+
+    .register-button:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.8),
+                  0 0 40px rgba(255, 215, 0, 0.6),
+                  0 0 80px rgba(255, 215, 0, 0.3);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      border-radius: 16px;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      animation: floatContact 3s ease-in-out infinite;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-item::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: linear-gradient(45deg, #45a049, #3d8b40);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.6);
+    }
+
+    .menu-icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 12px;
+      fill: white;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
+    }
+
+    @keyframes floatTimer {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-15px) scale(1.05); }
+    }
+
+    @keyframes floatButton {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.03); }
+    }
+
+    @keyframes floatContact {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes shine {
+      0% { transform: rotate(45deg) translate(-50%, -50%); }
+      100% { transform: rotate(45deg) translate(150%, 150%); }
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+      50% { text-shadow: 2px 2px 15px rgba(255, 215, 0, 0.8); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .timer {
+        font-size: 28px;
+      }
+
+      .timer-container {
+        padding: 12px 24px;
+      }
+
+      .bonus-text {
+        font-size: 32px;
+      }
+
+      .register-button {
+        padding: 16px 40px;
+        font-size: 24px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-item {
+        font-size: 18px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-container">
+    <img src="images/09092024_landing.jpg" alt="background" class="bg-image" />
+  </div>
+  
+  <div class="overlay"></div>
+
+  <div class="container">
+    <div class="promo-section">
+      <h1 style="color: #FFD700;">Ưu đãi có thời hạn! Thời gian còn lại!</h1>
+      <div class="timer-container">
+        <div class="timer" id="timer">00:59:59</div>
+      </div>
+      <div class="bonus-text">Nhận ưu đãi mỗi ngày!</div>
+      <a href="https://www.gn3o3k.vip:8663/VI/entry/register22292?i_code=99079490" class="register-button"target="_blank">Đăng ký ngay</a>
+    </div>
+
+    <div class="menu-grid">
+      <a href="https://t.me/DoannganMK" class="menu-item" target="_blank">
+        <svg class="menu-icon" viewBox="0 0 50 50">
+          <path d="M25 2C12.318 2 2 12.318 2 25c0 3.96 1.023 7.854 2.963 11.29L2.037 46.73c-.147.42.087.88.497 1.027.147.053.3.08.45.08.28 0 .55-.147.707-.37l8.37-12.36C15.197 38.927 19.997 40 25 40c12.682 0 23-10.318 23-23S37.682 2 25 2zm0 44c-4.71 0-9.243-1.473-13.048-4.26-.184-.136-.41-.197-.637-.174-.226.023-.438.127-.593.293l-6.876 9.53 2.488-8.862c.086-.305.014-.633-.188-.874C4.137 38.175 3 31.695 3 25 3 12.87 12.87 3 25 3s22 9.87 22 22-9.87 22-22 22z"/>
+        </svg>
+        Liên hệ chăm sóc khách hàng để nhận ưu đãi
+      </a>
+      <a href="https://t.me/khuyenmaimksports01" class="menu-item" target="_blank">
+        <svg class="menu-icon" viewBox="0 0 50 50">
+          <path d="M46.137 6.552c-.75-.636-1.928-.727-3.146-.238l-36.76 14.921c-1.278.519-1.943 1.054-2.007 1.868-.078.978.864 1.875 2.063 2.5l8.973 4.123c1.063-.907 9.922-8.492 11.56-9.874.47-.394 1.227-.094 1.227.532 0 .625-5.046 5.562-6.866 7.39-.674.673-.42 1.814.53 2.187l13.115 5.175c1.084.428 2.304-.066 2.7-1.15l7.92-21.632c.388-1.056-.45-1.942-1.172-2.545z"/>
+        </svg>
+        Tham gia Telegram
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function updateTimer() {
+      const timerElement = document.getElementById('timer');
+      let [hours, minutes, seconds] = timerElement.textContent.split(':').map(Number);
+      
+      setInterval(() => {
+        seconds--;
+        if (seconds < 0) {
+          seconds = 59;
+          minutes--;
+          if (minutes < 0) {
+            minutes = 59;
+            hours--;
+            if (hours < 0) {
+              hours = 12;
+            }
+          }
+        }
+        timerElement.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', updateTimer);
+  </script>
+</body>
+</html>
