@@ -1,0 +1,107 @@
+.videoBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.videoWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding-top: 100vh;
+}
+
+.promoSection {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.timerContainer {
+  background: linear-gradient(45deg, #FF4444, #FF0000);
+  padding: 16px 32px;
+  border-radius: 16px;
+  display: inline-block;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+  animation: floatTimer 3s ease-in-out infinite;
+}
+
+.timer {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bonusText {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 24px 0;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.registerButton {
+  display: inline-block;
+  padding: 20px 60px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  animation: floatButton 3s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.6),
+              0 0 30px rgba(255, 215, 0, 0.4),
+              0 0 60px rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 继续添加其他样式... */ 
